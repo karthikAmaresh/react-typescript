@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { CustomDrawer } from './components/BasicLayout';
+import { CustomDrawer } from './app/components/BasicLayout';
 
 function App() {
   return (

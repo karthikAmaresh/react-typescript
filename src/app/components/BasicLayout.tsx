@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import clsx from "clsx";
 import {
   makeStyles,
@@ -23,6 +24,9 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import Grid from "@material-ui/core/Grid";
+import { IQuiz } from "../../store/quiz/quiz";
+import { getQuizSelector } from "../../store/quiz/quiz.selector";
+import { fetchQuizRequest } from "../../store/quiz/quiz.redux";
 
 const drawerWidth = 240;
 
@@ -106,6 +110,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const CustomDrawer = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const quizList:IQuiz[] = useSelector(getQuizSelector);
+
+  useEffect(() => {
+    dispatch(fetchQuizRequest());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -185,7 +197,7 @@ export const CustomDrawer = () => {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph>
+        {/* <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
           dolor purus non enim praesent elementum facilisis leo vel. Risus at
@@ -199,21 +211,12 @@ export const CustomDrawer = () => {
           vivamus at augue. At augue eget arcu dictum varius duis at consectetur
           lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
           faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-          ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
-          elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse
-          sed nisi lacus sed viverra tellus. Purus sit amet volutpat consequat
-          mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis
-          risus sed vulputate odio. Morbi tincidunt ornare massa eget egestas
-          purus viverra accumsan in. In hendrerit gravida rutrum quisque non
-          tellus orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
-          morbi tristique senectus et. Adipiscing elit duis tristique
-          sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
+        </Typography> */}
+          {quizList?.map((quiz:IQuiz)=>{
+            // <Typography paragraph><h2>{quiz?.title}</h2></Typography>
+            <Typography >{quiz?.title}</Typography>
+          })}
+          <Typography >abc</Typography>
       </main>
     </div>
   );

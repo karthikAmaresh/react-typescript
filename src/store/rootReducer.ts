@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import todoReducer from "./todo/reducer";
+import quizReducer from "./quiz/quiz.redux"
 
 const rootReducer = combineReducers({
-  todo: todoReducer,
+  quiz: quizReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
