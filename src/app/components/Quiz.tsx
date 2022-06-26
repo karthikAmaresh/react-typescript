@@ -13,8 +13,10 @@ import { getQuizSelector } from "../../store/quiz/quiz.selector";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     media: {
-      height: "15rem",
-      width: "15rem",
+      height: "12rem",
+      width: "12rem",
+      marginLeft:"1rem",
+      marginTop:"2rem"
     },
     flexCardContainer: {
       display: "flex",
