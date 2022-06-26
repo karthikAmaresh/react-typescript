@@ -46,7 +46,7 @@ export const Quiz = () => {
           ((index%6) === 0 && (<div>
               <Card
                 style={{
-                  height: "21rem",
+                  height: "20rem",
                   width: "14rem",
                   margin: "0rem 1rem 0rem 1rem",
                 }}
