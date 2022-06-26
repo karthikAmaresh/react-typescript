@@ -12,7 +12,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { fetchQuizRequest } from "../../store/quiz/quiz.redux";
 import { Box, Container, Typography } from "@material-ui/core";
-import { Quiz } from "./Quiz";
+import { Quiz } from "./quiz";
 
 
 export const drawerWidth = 240;
