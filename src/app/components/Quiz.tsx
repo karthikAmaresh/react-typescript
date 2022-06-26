@@ -12,67 +12,6 @@ import { getQuizSelector } from "../../store/quiz/quiz.selector";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      display: "flex",
-    },
-    cardRoot: {
-      width: "50rem",
-    },
-    flexContainer: {
-      display: "flex",
-      alignItems: "flex-start",
-    },
-    appBar: {
-      transition: theme.transitions.create(["margin", "width"], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-    },
-    appBarShift: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-      transition: theme.transitions.create(["margin", "width"], {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    hide: {
-      display: "none",
-    },
-    closeIcon: {
-      textAlign: "right",
-      font: "normal normal normal 14px/19px Roboto",
-      letterSpacing: "0px",
-      color: "#666666",
-    },
-    customDrawerHeader: {
-      textAlign: "left",
-      font: "normal normal normal 18px/22px Roboto",
-      letterSpacing: "0px",
-      color: "#353535",
-      opacity: 1,
-      paddingTop: "0.8rem",
-      paddingLeft: "1rem",
-    },
-    content: {
-      flexGrow: 1,
-      padding: theme.spacing(3),
-      transition: theme.transitions.create("margin", {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-      marginLeft: -drawerWidth,
-    },
-    contentShift: {
-      transition: theme.transitions.create("margin", {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
-    },
     media: {
       height: "15rem",
       width: "15rem",
