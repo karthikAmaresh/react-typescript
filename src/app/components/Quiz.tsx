@@ -99,6 +99,13 @@ const useStyles = makeStyles((theme: Theme) =>
     gridContainers: {
       maxHeight: "calc(100vh - 128px)"
     },
+    heading:{
+      color: "steelblue",
+    fontSize: "28px",
+    fontFamily: "ui-serif",
+    fontWeight: 800,
+    margin: "0px 0px 3rem 18rem"
+    }
   })
 );
 
@@ -107,6 +114,7 @@ export const Quiz = () => {
   const classes = useStyles();
   return (
     <div className={classes.gridContainers}>
+      <div className={classes.heading}>QUIZ</div>
       <div className={classes.flexCardContainer}>
         {quizList?.map((quiz: IQuiz, index) => (
           ((index%6) === 0 && (<div>
