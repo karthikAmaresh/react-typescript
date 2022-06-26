@@ -42,21 +42,6 @@ const useStyles = makeStyles((theme: Theme) =>
     hide: {
       display: "none",
     },
-    drawer: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
-    drawerPaper: {
-      width: drawerWidth,
-    },
-    drawerHeader: {
-      display: "flex",
-      alignItems: "center",
-      padding: theme.spacing(0, 1),
-      // necessary for content to be below app bar
-      ...theme.mixins.toolbar,
-      justifyContent: "flex-end",
-    },
     closeIcon: {
       textAlign: "right",
       font: "normal normal normal 14px/19px Roboto",
@@ -100,7 +85,7 @@ const useStyles = makeStyles((theme: Theme) =>
       maxHeight: "calc(100vh - 128px)"
     },
     heading:{
-      color: "steelblue",
+    color: "steelblue",
     fontSize: "28px",
     fontFamily: "ui-serif",
     fontWeight: 800,

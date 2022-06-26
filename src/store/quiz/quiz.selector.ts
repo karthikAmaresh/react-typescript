@@ -1,13 +1,13 @@
 import { createSelector } from "reselect";
 
 
-import { AppState } from "../rootReducer";
+import { AppQuizState } from "../rootQuizReducer";
 
-const getPending = (state: AppState) => state.quiz.pending;
+const getPending = (state: AppQuizState) => state.quiz.pending;
 
-const getQuizzes = (state: AppState) => state.quiz.quiz;
+const getQuizzes = (state: AppQuizState) => state.quiz.quiz;
 
-const getError = (state: AppState) => state.quiz.error;
+const getError = (state: AppQuizState) => state.quiz.error;
 
 export const getQuizSelector = createSelector(getQuizzes, (quiz) => quiz);
 

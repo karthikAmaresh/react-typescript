@@ -1,19 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   makeStyles,
-  useTheme,
   Theme,
   createStyles,
 } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { fetchQuizRequest } from "../../store/quiz/quiz.redux";
-import { Box, Container, Typography } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import { Quiz } from "./quiz";
-
+import { getUserData } from "../services/userService";
 
 export const drawerWidth = 240;
 
@@ -105,19 +103,33 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     gridContainers: {
       maxHeight: "calc(100vh - 128px)",
-      // height: "33px",
-      // width: "249px",
-      // padding: "6px 9px 3px 9px",
     },
+    navBarUser:{
+      color:"whitesmoke",
+      fontSize: "1rem",
+      fontFamily: "ui-serif",
+      marginLeft:"87rem"
+      }
   })
 );
 
 export const Home = () => {
   const classes = useStyles();
+  const [userData,setUserData] = useState<string>();
   const dispatch = useDispatch();
+  // const users = useSelector(getUserSelector);
 
+  const getUserList = async() => {
+    await getUserData().then((response)=>{
+      console.log(response.data[0]?.name)
+      setUserData(response.data[0]?.name);
+    }
+    );
+   
+  }
   useEffect(() => {
     dispatch(fetchQuizRequest());
+    getUserList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -126,7 +138,7 @@ export const Home = () => {
       <CssBaseline />
         <AppBar>
           <Toolbar>
-            <Typography variant="h6">Scroll to Elevate App Bar</Typography>
+            <div className={classes.navBarUser}>{`Hi` + ' ' + userData}</div>
           </Toolbar>
         </AppBar>
       <Toolbar />

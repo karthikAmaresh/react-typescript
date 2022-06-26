@@ -1,5 +1,5 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
-import { getQuizList } from "../../app/services/quizService";
+import { getQuizList } from "../../app/services/quizServices";
 import { FETCH_QUIZ_REQUEST } from "./quiz";
 import { fetchQuizFailure, fetchQuizSuccess } from "./quiz.redux";
 
